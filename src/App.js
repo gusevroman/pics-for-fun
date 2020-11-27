@@ -1,11 +1,10 @@
-import './App.css';
+import { Gallery } from "./pages/gallery";
 
-function App() {
+export function App() {
   return (
-    <div className="App">
+    <div>
       <h1>Hi</h1>
+      <Gallery />
     </div>
   );
 }
-
-export default App;
