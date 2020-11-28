@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
+import { connect } from "react-redux";
 
 // import Gallery from "./pages/Gallery";
 import Navbar from "./components/Navbar";
@@ -14,4 +15,6 @@ function App() {
   );
 }
 
-export default App;
+export default connect((state) => {
+  return state;
+})(App);
