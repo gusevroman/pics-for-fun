@@ -1,20 +1,20 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import { connect } from "react-redux";
+import { Provider } from "react-redux";
 
-// import Gallery from "./pages/Gallery";
 import Navbar from "./components/Navbar";
 import Routes from "./Routes/index";
+import store from "./redux/store";
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <Routes />
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <Navbar />
+        <Routes />
+      </Router>
+    </Provider>
   );
 }
 
-export default connect((state) => {
-  return state;
-})(App);
+export default App;
