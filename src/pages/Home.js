@@ -1,31 +1,34 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import { fetchPic } from "../redux/images/actions";
+
 import Pic from "../components/Pic";
 
-class Home extends Component {
-  componentDidMount() {
-    const { dispatch } = this.props;
+const Home = () => {
+  const dispatch = useDispatch();
+  const handeleClick = () => {
     dispatch(fetchPic());
-  }
+  };
+  const { url, username, loading, error } = useSelector(
+    (state) => state.picsReducer
+  );
 
-  render() {
-    const { url, loading, error } = this.props.picsReducer;
+  useEffect(() => {
+    dispatch(fetchPic());
+  }, []);
 
-    return (
-      <div>
-        <h1>Do you want a lot of fun?</h1>
-        <button className="btn" onClick={() => this.props.dispatch(fetchPic())}>
-          Show funny pics
-        </button>
+  return (
+    <div>
+      <h1>!!!Do you want a lot of fun?</h1>
+      <button className="btn" onClick={handeleClick}>
+        Show new funny pics
+      </button>
 
-        <Pic url={url} loading={loading} error={error} />
-      </div>
-    );
-  }
-}
+      <Pic url={url} loading={loading} error={error} />
+      <span>Author: {username}</span>
+    </div>
+  );
+};
 
-export default connect((state) => {
-  return state;
-})(Home);
+export default Home;

@@ -20,6 +20,7 @@ const picsReducer = (state = initialState, action) => {
       return {
         ...state,
         url: action.payload.url,
+        username: action.payload.username,
         loading: false,
         pics: [...state.pics, action.payload],
       };
