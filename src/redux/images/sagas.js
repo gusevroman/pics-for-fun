@@ -2,7 +2,7 @@ import { call, put, takeEvery } from "redux-saga/effects";
 
 import { requestPic, requestPicSuccess, requestPicError } from "./actions";
 import { PIC_FETCH } from "./types";
-import { API_URL } from "../../constants/constants";
+import { API_URL } from "../../API/constants";
 
 export function* watchFetchPic() {
   yield takeEvery(PIC_FETCH, fetchPicAsync);

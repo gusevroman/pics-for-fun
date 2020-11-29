@@ -1,21 +1,13 @@
 import { NavLink } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
 const Navbar = () => (
   <nav>
     <NavLink to="/">
-      <button className="btn btn-link" type="button">
-        Home
-      </button>
+      <Button color="primary">Home</Button>
     </NavLink>
     <NavLink to="/history">
-      <button className="btn btn-link" type="button">
-        History
-      </button>
-    </NavLink>
-    <NavLink to="/gallery">
-      <button className="btn btn-link" type="button">
-        Gallery of Funny
-      </button>
+      <Button color="primary">History</Button>
     </NavLink>
   </nav>
 );
