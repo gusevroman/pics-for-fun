@@ -1,4 +1,5 @@
 import React from "react";
+import "./paginator.scss";
 
 const Paginator = React.memo(({ totalPic, picPerPage, paginatePage }) => {
   const pages = Array.from(
@@ -9,7 +10,7 @@ const Paginator = React.memo(({ totalPic, picPerPage, paginatePage }) => {
       </li>
     )
   );
-  return <ul>{pages}</ul>;
+  return <ul className="paginator">{pages}</ul>;
 });
 
 export default Paginator;

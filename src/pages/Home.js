@@ -8,7 +8,7 @@ import Pic from "../components/Pic";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const handeleClick = () => {
+  const handleClick = () => {
     dispatch(fetchPic());
   };
   const { url, username, loading, error } = useSelector(
@@ -23,7 +23,7 @@ const Home = () => {
     <div>
       <h1>Do you want a lot of fun?</h1>
 
-      <Button color="primary" onClick={handeleClick}>
+      <Button variant="contained" color="primary" onClick={handleClick}>
         Show new funny pics
       </Button>
 

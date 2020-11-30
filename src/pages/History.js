@@ -14,6 +14,7 @@ const History = () => {
   });
 
   const { currentPage, picPerPage } = state;
+
   const indexLastPic = currentPage * picPerPage;
   const indexFirstPic = indexLastPic - picPerPage;
 
@@ -21,6 +22,7 @@ const History = () => {
     setState((state) => ({ ...state, currentPage: page }));
 
   const dispatch = useDispatch();
+
   const handleDelete = (id) => {
     dispatch(deletePic(id));
   };
@@ -44,7 +46,11 @@ const History = () => {
         <p>Author image: {item.username} </p>
         <p>Viewing time: {item.time} </p>
 
-        <Button color="secondary" onClick={() => handleDelete(item.id)}>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={() => handleDelete(item.id)}
+        >
           Delete from history
         </Button>
       </React.Fragment>
@@ -52,7 +58,7 @@ const History = () => {
   });
 
   return paginatePics.length ? (
-    <div>
+    <>
       <h1>History of viewing images</h1>
       <div>{paginatePics.slice(indexFirstPic, indexLastPic)}</div>
       <Paginator
@@ -60,7 +66,7 @@ const History = () => {
         picPerPage={picPerPage}
         paginatePage={paginatePage}
       />
-    </div>
+    </>
   ) : (
     <>
       <h1>The history of fun is empty yet</h1>
